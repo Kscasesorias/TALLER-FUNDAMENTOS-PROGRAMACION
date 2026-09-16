@@ -542,7 +542,7 @@ print()
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("PROBLEMA 5 - ANÁLISIS DE COMENTARIOS")
 print("\033[93m" + '=' * 120 + "\033[0m")
-
+#Creamos las listas con las palabras clasificadas en registros de palabras favorables y desfavorables, así mismo la lista de comentarios.
 favorables = [
     "excelente",
     "rápido",
@@ -569,41 +569,42 @@ comentarios = [
     "La atención terminó a tiempo",
     "El servicio fue malo deficiente e incompleto"
 ]
-
+#creamos contador de frecuencias en diccionario para contar las veces que aparece cada palabra de las listas Favorables y desfaborables.
 frecuencia = {}
-
+#Creamos contadores de total por tipo de comentario
 total_favorables = 0
 total_desfavorables = 0
-
+#Recorremos cada comentario definiendo que la variable palabras va a ser definida como el comentario en minúscula y separado por espacio.
 for comentario in comentarios:
 
     palabras = comentario.lower().split()
-
+#se crean los contadores según tipo de comentario antes de hacer el recorrido por cada palabra de cada comentario ya separado por espacios en cada lista.
     favorables_comentario = 0
     desfavorables_comentario = 0
-
+#recorremos cada palabra de cada comentario.
     for palabra in palabras:
-
+#si encuentra palabras en la lista de palabras favorables lo que procede es que suma el número inicial de favorables_comentario más esa palabra favorable consecutivamente.
         if palabra in favorables:
 
             favorables_comentario = favorables_comentario + 1
-            total_favorables = total_favorables + 1
+            total_favorables = total_favorables + 1 #acumula 1 a la variable total favorables.
 
-            if palabra in frecuencia:
+            if palabra in frecuencia: #si cada palabra que se recorra y se identifique como favorable está en el diccionario de frecuencia se suma 1 a la palabra, si no está entonces se crea la palabra dentro del diccionario como una ueva llave y se suma 1.
                 frecuencia[palabra] = frecuencia[palabra] + 1
             else:
                 frecuencia[palabra] = 1
 
-        elif palabra in desfavorables:
+        elif palabra in desfavorables: #este elif funciona como un "y si" las palabras se encuentran el la lista de desfavorables entonces realiza la acumulación en desfavorables_comentario y en el total de desfavorables.
 
             desfavorables_comentario = desfavorables_comentario + 1
             total_desfavorables = total_desfavorables + 1
 
-            if palabra in frecuencia:
+            if palabra in frecuencia: #en este punto nuevamente revisa si la palabra está en el diccionario de frecuencia y si aparece ñe suma uno y si no crea la nueva llave e inicia a acumular.
                 frecuencia[palabra] = frecuencia[palabra] + 1
             else:
                 frecuencia[palabra] = 1
-
+    #se compara la cantidad de palabras favorables vs las desfavorables y viceversa en cada comentario. si ninguna es mayor que la otra entonces 
+    #se busca si hay almenos una palabra favorable entonces se clasifica como mixto.
     if favorables_comentario > desfavorables_comentario:
 
         clasificacion = "Favorable"
@@ -612,13 +613,13 @@ for comentario in comentarios:
 
         clasificacion = "Desfavorable"
 
-    elif favorables_comentario > 0:
+    elif favorables_comentario > 0: #una vez se validan las dos condiciones anteriores se valida que por lo menos haya 1 favorable para claseificarlo como mixto.
 
         clasificacion = "Mixto"
 
     else:
 
-        clasificacion = "Sin clasificación"
+        clasificacion = "Sin clasificación" # si no encuentra palabras dentro de las listas favorables o desfavorables entonces se registra como sin clasificación.
 
     print()
     print("Comentario:", comentario)
