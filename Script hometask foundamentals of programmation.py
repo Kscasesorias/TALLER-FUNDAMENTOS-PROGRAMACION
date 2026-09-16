@@ -1,6 +1,3 @@
-
-
-
 Encabezado ={ 
     "Nombre_taller" : "Desarrollo taller Fundamentos de programación - Taller de entrenamiento de programación y razonamiento lógico",
     "Integrantes" : """
@@ -25,21 +22,18 @@ print()
 print("\033[1m" + "Universidad", Encabezado["Universidad"]+ "\033[0m")
 print()
 print("\033[1m" + "Fecha:", Encabezado["Fecha"]+ "\033[0m")
-print("\033[93m" + '=' * 120 + "\033[0m")
-
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
 print()
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("PROBLEMA 1 - EVALUACIÓN DE PEDIDOS PARA DESPACHO")
 print("\033[93m" + '=' * 120 + "\033[0m")
 print()
-print('*' * 120)
-print('Creamos diccionario con los datos de cada cliente utilizando listas')
-print("""
-\033[94mRecibe:\033[0m Todos los datos de la tabla de pedidos.
-\033[92mDevuelve:\033[0m Alimenta todos los calculos de las funciones posteriores.
-""")
-print('*' * 120)
 
+#Creamos diccionario con los datos de cada cliente utilizando listas')
+#Recibe: Todos los datos de la tabla de pedidos.
+#Devuelve: Un diccionario de listas y "alimenta" todos los calculos de las funciones posteriores.
 
 pedidos_1 = {
     "Clientes": [
@@ -91,17 +85,11 @@ pedidos_1 = {
     ]
 }
 
-
-
-print('*' * 120)
-print('Utilizamos la función for para recorrer todos los valores del diccionario......etc.....etc.....XXXXXXXXXX')
-print("""
-\033[94mRecibe:\033[0m _______________________________________
-\033[92mDevuelve:\033[0m _____________________________________
-""")
-print('*' * 120)
-
-
+#Utilizamos la función for para recorrer todos los valores del diccionario creando un recorrido por cada indice de cada lista dentro del conjunto' \
+#y creamos las variables cliente hasta mora para que for recorra los 5 índices.
+#Se crean las variables de la tabla del ejercicio con base en el diccionario "pedidos_1", invocamos el elemento de la lista según su índice.
+#los if agregan elementos a la lista causas si la condicion se cumple y en el caso de que la mora esté entre 1 y 30 días revisa el tipo de cliente y el valor.
+#si len causas es mayor a 0 entonces devuelve los datos del cliente con valores en 0 exceptuando las unidades que siguen siendo las mismas y el valor del pedido.
 
 for i in range(5):
 
@@ -138,6 +126,10 @@ for i in range(5):
         valor_final = 0
         inventario_restante = inventario
 
+#si nada de lo anterior se cumple entonces el pedido es aprobado y al ser aprobado se revisa que tipo de cliente 
+# es para asignar el % de descuento.
+#se crean las variables valor de descuento y valor despues de descuento y dependiendo del valor después del 
+# descuento se asigna valor 0 al envio o de lo contrario 35000.
     else:
 
         estado = "APROBADO"
@@ -160,7 +152,9 @@ for i in range(5):
         valor_final = valor_despues_descuento + envio
         inventario_restante = inventario - unidades
 
-    print()
+#Finalmente se imprimen los nombres de cada variable y sus datos contenidos tantas veces como la función for recorre cada 
+#índice de cada lista.
+    print ()
     print("Cliente:", cliente)
     print("Estado:", estado)
 
@@ -172,25 +166,15 @@ for i in range(5):
     print("Envío:", envio)
     print("Valor final:", valor_final)
     print("Inventario restante:", inventario_restante)
-
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
 print()
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("PROBLEMA 2 - RIESGO OPERATIVO")
 print("\033[93m" + '=' * 120 + "\033[0m")
 
-
-print('*' * 120)
-print('qué hicimos?')
-print("""
-\033[94mRecibe:\033[0m _______________________________________
-\033[92mDevuelve:\033[0m _____________________________________
-""")
-print('*' * 120)
-
-
-
+#Creamos lista con diccionarios con los datos de la tabla del ejercicio 2. 
 ordenes_2 = [
     {
         "Valor": 4000000,
@@ -239,7 +223,7 @@ ordenes_2 = [
 ]
 
 
-
+#creamos n for que recorra cada diccionario en la lista.
 
 for orden in ordenes_2:
 
@@ -250,6 +234,7 @@ for orden in ordenes_2:
     retraso = orden["Retraso"]
     documentacion = orden["Documentacion"]
 
+#Creamos las condiciones a revisar y creamos las variables riesgo y riesgo inicial dependiendo de los montos.
     if valor <= 8000000:
         riesgo = 1
         riesgo_inicial = "Bajo"
@@ -261,7 +246,9 @@ for orden in ordenes_2:
     else:
         riesgo = 3
         riesgo_inicial = "Alto"
-
+#creamos una lista vacía en donde se almacenarán índices definidos por la validación de tipo de cliente,
+#número de modificaciones, días de retraso y finalmente si es corporatico con documentación al día y retraso menor
+#a 5 días.
     reglas = []
 
     if tipo == "Nuevo" and antiguedad < 3:
@@ -281,7 +268,7 @@ for orden in ordenes_2:
         if antiguedad >= 24 and documentacion == True and retraso <= 5:
             riesgo = riesgo - 1
             reglas.append("Reducción por cliente corporativo")
-
+#si la documentación no está al día y si el monto es mayor a 15' se aplica riesgo 3
     if documentacion == False:
         riesgo = 3
         reglas.append("Documentación incompleta")
@@ -295,7 +282,7 @@ for orden in ordenes_2:
 
     if riesgo > 3:
         riesgo = 3
-
+#se definen las variables  y se asigna variable riesgo final y acción deacuerdo a dicha suma. 
     if riesgo == 1:
         riesgo_final = "Bajo"
         accion = "Procesar"
@@ -314,24 +301,15 @@ for orden in ordenes_2:
     print("Reglas activadas:", reglas)
     print("Riesgo final:", riesgo_final)
     print("Acción:", accion)
-
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
 print()
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("PROBLEMA 3 - CONTROL DE INVENTARIO")
 print("\033[93m" + '=' * 120 + "\033[0m")
 
-
-print('*' * 120)
-print('qué hicimos?')
-print("""
-\033[94mRecibe:\033[0m _______________________________________
-\033[92mDevuelve:\033[0m _____________________________________
-""")
-print('*' * 120)
-
-
+#Creamos las variables y listas de datos necesarias:
 
 inventario_inicial = 50
 
@@ -343,7 +321,7 @@ movimientos = [
 ]
 
 inventario = inventario_inicial
-
+#Definimos los contadores:
 recibidos = 0
 invalidos = 0
 entradas_aceptadas = 0
@@ -352,28 +330,40 @@ salidas_rechazadas = 0
 unidades_ingresadas = 0
 unidades_salidas = 0
 
+#Definimos variable critico y primer momento crítico
+
 critico = False
 primer_momento_critico = 0
+
+#Invocamos la función for para que en los ídices 0 sean reconocidos como el tipo de movimiento y el índice 1 como 
+# las unidades de dichos movimientos.
 
 for movimiento in movimientos:
 
     tipo = movimiento[0]
     unidades = movimiento[1]
 
-    recibidos = recibidos + 1
+    recibidos = recibidos + 1 #Definimos que los pedidos recibidos serán iguala  la suma de los recibids iniciales 
+                              #(0) más los que se reciban, en total 4.
 
-    if unidades <= 0 or (tipo != "Entrada" and tipo != "Salida"):
+    if unidades <= 0 or (tipo != "Entrada" and tipo != "Salida"): #busca los tipos de movimiento y verifica si las 
+                                                                  #unidades son menores a 0, si las unidades son 
+                                                                  #menores a 0 o hay algún otro tipo de movimiento 
+                                                                  #entonces lo registra como inválido.
 
         invalidos = invalidos + 1
         print("Movimiento inválido:", movimiento)
 
-    else:
+    else:                                                         #Si no es iválido entonces es válido y valida si es 
+                                                                  #una entrada o una salida y dependiendo de eso suma o 
+                                                                  #resta unidades al inventario y actualiza las unidades 
+                                                                  #aceptadas y las unidades salidas.
 
         if tipo == "Entrada":
 
             inventario = inventario + unidades
             entradas_aceptadas = entradas_aceptadas + 1
-            unidades_ingresadas = unidades_ingresadas + unidades
+            unidades_ingresadas = unidades_ingresadas + unidades #Se utiliza acumulador para registrar todas las unidades entradas.
 
         else:
 
@@ -381,15 +371,17 @@ for movimiento in movimientos:
 
                 inventario = inventario - unidades
                 salidas_aceptadas = salidas_aceptadas + 1
-                unidades_salidas = unidades_salidas + unidades
+                unidades_salidas = unidades_salidas + unidades #Se utiliza acumulador para registrar todas las unidades salidas.
 
             else:
 
                 salidas_rechazadas = salidas_rechazadas + 1
-                print("Salida rechazada por inventario insuficiente")
+                print("Salida rechazada por inventario insuficiente") #si no es una entrada y tampoco es menor al 
+                                                                      #inventario entonces es rechazada por superar el inventario disponible.
 
-        if inventario < 10 and critico == False:
-
+        if inventario < 10 and critico == False: #se define una bandera de alerta para el momento crítico de inventario <10
+                                                 #si se cumple con el inventario < a 10 y crítico es false entonces crítico
+                                                 #pasa a ser True y el primer momento "Inventario".
             critico = True
             primer_momento_critico = inventario
 
@@ -410,33 +402,21 @@ else:
 
 inventario_verificado = inventario_inicial + unidades_ingresadas - unidades_salidas
 
-print("Inventario calculado:", inventario)
-print("Inventario verificado:", inventario_verificado)
+print("Inventario final:", inventario) #Imprime el inventario acumulado sumando y restando movimientos desde el inventario inicial.
+print("Inventario verificado:", inventario_verificado) #Se realiza la verificación del inventario inicial mas ingresos y menos salidas.
 
-if inventario == inventario_verificado:
+if inventario == inventario_verificado: #Si coinciden ambas cantidades es correcto el calculo de la acumulación entre entredas y salidas vs el paso a paso del script.
     print("VERIFICACIÓN CORRECTA")
 else:
     print("VERIFICACIÓN INCORRECTA")
-
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
 print()
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("PROBLEMA 4 - AUDITORÍA DE TRANSACCIONES")
 print("\033[93m" + '=' * 120 + "\033[0m")
-
-
-
-print('*' * 120)
-print('qué hicimos?')
-print("""
-\033[94mRecibe:\033[0m _______________________________________
-\033[92mDevuelve:\033[0m _____________________________________
-""")
-print('*' * 120)
-
-
-
+#Creamos la base de datos con una lista con listas.
 transacciones_4 = [
     ["T01", 800000, "Compra", 14, True],
     ["T02", 6200000, "Compra", 2, True],
@@ -445,7 +425,7 @@ transacciones_4 = [
     ["T05", -100000, "Compra", 10, True],
     ["T06", 900000, "Compra", 25, True]
 ]
-
+#Acumuladores de jornada de transacciones
 recibidas = 0
 validas = 0
 invalidas = 0
@@ -453,17 +433,19 @@ valor_total_valido = 0
 transacciones_alertadas = 0
 alertas_totales = 0
 
+#Acumuladores de alertas por transacción.
 alerta_valor = 0
 alerta_hora = 0
 alerta_devolucion = 0
 alerta_no_autorizada = 0
 alerta_ajuste = 0
 
-codigos_revision = []
+codigos_revision = [] #lista para acumular transacciones a revisar
 
-mayor_transaccion = 0
-codigo_mayor = ""
+mayor_transaccion = 0 #acumulador de la mayor transacción, se revisará el valor de cada transacción de la base hasta dar con la más alta.
+codigo_mayor = "" #contendrá el código de la transacción con el valor más alto calculados en las lineas 501 a 504.
 
+#Invocamos un for para asignar una variable a cada dato de la lista que alimenta al programa y poder repetir la busqueda de condiciones en cada variable.
 for transaccion in transacciones_4:
 
     codigo = transaccion[0]
@@ -472,20 +454,22 @@ for transaccion in transacciones_4:
     hora = transaccion[3]
     autorizada = transaccion[4]
 
-    recibidas = recibidas + 1
+    recibidas = recibidas + 1 #suma las veces que la función for procesa un registro para tomar cada registro como transacciones recibidas.
 
+    #En este punto se definen las funciones condicionales para validar cada transacción y cada condición se revisa en cada transacción o registro debido a que se encuentra dentro del jor en la identación jerárquica.
+    #Es decir se definen las líneas de código para validar primero si hay transacciones inválidas y reportarlas:
     if valor <= 0 or (tipo != "Compra" and tipo != "Devolucion" and tipo != "Ajuste") or hora < 0 or hora > 23:
 
         invalidas = invalidas + 1
         print("Transacción inválida:", codigo)
-
+    #Posterior a la validación de trx inválidas se procede a procesar las validas:
     else:
 
-        validas = validas + 1
-        valor_total_valido = valor_total_valido + valor
+        validas = validas + 1 #Acumula cada transacción válida en el acumulador de trx validas de la línea 430.
+        valor_total_valido = valor_total_valido + valor #define la variable como el siguiente valor que recorre y suma el posterior.
 
-        alertas = 0
-
+        alertas = 0 #Acumulador de alertas en las validaciones de las filas 475-480-485-490-495
+        #en los siguientes 5 if se validan las condiciones que generan alerta por monto, hora, tipo y monto, estado de autorización
         if valor > 5000000:
 
             alertas = alertas + 1
@@ -510,7 +494,9 @@ for transaccion in transacciones_4:
 
             alertas = alertas + 1
             alerta_ajuste = alerta_ajuste + 1
-
+        #Se valida cantidad de alertas para arrojar el total de alertas encontradas en los recorridos del for en cada registro.
+        #arroja el total del acumulador alertas_totales más las alertas generadas en el recorrido del for.
+        #posteriormente se agregan los códigos de las transacciones que generaron alerta  a la lista códigos_revisión.
         if alertas > 0:
 
             transacciones_alertadas = transacciones_alertadas + 1
@@ -549,25 +535,13 @@ else:
 
 print("Porcentaje de válidas con alerta:", porcentaje_alerta, "%")
 
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
 print()
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("PROBLEMA 5 - ANÁLISIS DE COMENTARIOS")
 print("\033[93m" + '=' * 120 + "\033[0m")
-
-
-
-print('*' * 120)
-print('qué hicimos?')
-print("""
-\033[94mRecibe:\033[0m _______________________________________
-\033[92mDevuelve:\033[0m _____________________________________
-""")
-print('*' * 120)
-
-
-
 
 favorables = [
     "excelente",
@@ -657,25 +631,13 @@ print("Total favorables:", total_favorables)
 print("Total desfavorables:", total_desfavorables)
 print("Frecuencia de palabras:", frecuencia)
 
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
 print()
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("PROBLEMA 6 - CONSOLIDACIÓN DE VENTAS")
 print("\033[93m" + '=' * 120 + "\033[0m")
-
-
-
-print('*' * 120)
-print('qué hicimos?')
-print("""
-\033[94mRecibe:\033[0m _______________________________________
-\033[92mDevuelve:\033[0m _____________________________________
-""")
-print('*' * 120)
-
-
 
 ventas_6 = [
     ["A", "Tecnología", 8, 120000, 0],
@@ -803,24 +765,13 @@ if total_neto == ingreso_consolidado:
 else:
     print("VERIFICACIÓN INCORRECTA")
 
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
 print()
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("PROBLEMA 7 - GESTIÓN DE PEDIDOS")
 print("\033[93m" + '=' * 120 + "\033[0m")
-
-
-
-print('*' * 120)
-print('qué hicimos?')
-print("""
-\033[94mRecibe:\033[0m _______________________________________
-\033[92mDevuelve:\033[0m _____________________________________
-""")
-print('*' * 120)
-
-
 
 pedidos_7 = [
     ["C1", 10, 10, 3, 3, "Pagado"],
@@ -948,24 +899,13 @@ for cliente in clientes:
     print("Parciales:", clientes[cliente]["Parciales"])
     print("Incumplidos:", clientes[cliente]["Incumplidos"])
 
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
 print()
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("PROBLEMA 8 - EVALUACIÓN DE PROVEEDORES")
 print("\033[93m" + '=' * 120 + "\033[0m")
-
-
-
-print('*' * 120)
-print('qué hicimos?')
-print("""
-\033[94mRecibe:\033[0m _______________________________________
-\033[92mDevuelve:\033[0m _____________________________________
-""")
-print('*' * 120)
-
-
 
 def puntos_puntualidad(porcentaje):
 
@@ -1162,24 +1102,14 @@ print(
     "%"
 )
 
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
 
 print()
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("PROBLEMA 9 - SISTEMA INTEGRADO")
 print("\033[93m" + '=' * 120 + "\033[0m")
-
-
-
-print('*' * 120)
-print('qué hicimos?')
-print("""
-\033[94mRecibe:\033[0m _______________________________________
-\033[92mDevuelve:\033[0m _____________________________________
-""")
-print('*' * 120)
-
-
 
 operaciones = [
     ["P01", "C1", "A", 5, 100000, 0, "Entregado", 2, 3],
@@ -1425,26 +1355,13 @@ for cliente in clientes_9:
         cliente_mayor_ingreso = cliente
 
         
-#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------
 print()
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("RESULTADOS FINALES - PROBLEMA 9")
 print("\033[93m" + '=' * 120 + "\033[0m")
-
-
-
-print('*' * 120)
-print('qué hicimos?')
-print("""
-\033[94mRecibe:\033[0m _______________________________________
-\033[92mDevuelve:\033[0m _____________________________________
-""")
-print('*' * 120)
-
-
-
 
 print("Registros recibidos:", recibidos)
 print("Registros válidos:", validos)
