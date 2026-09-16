@@ -1,18 +1,19 @@
 
-        "Distribuciones ABC",
-        "Andrea",Encabezado ={ 
-    "Nombre_taller" : "Desarrollo taller Fundamentos de programación - Taller de entrenamiento de programación y razonamiento lógico",
-    "Integrantes" : """
-                    """
+Encabezado = {
+    "Nombre_taller": "Desarrollo taller Fundamentos de programación - Taller de entrenamiento de programación y razonamiento lógico",
 
-    """
-    Ayda Johanna Bermudez Leon 
-    Luis Eduardo Reyes Fernández
-    Katherinne Stella Castaneda Rodriguez""",
-    "Docente" : "Ivan Dario Rico Arias",
+    "Integrantes": """
+Ayda Johanna Bermudez Leon
+Luis Eduardo Reyes Fernández
+Katherinne Stella Castaneda Rodriguez
+""",
+
+    "Docente": "Ivan Dario Rico Arias",
+
     "Universidad": "Konrad Lorenz - Especialización en analítica de datos e IA",
-    "Fecha" : "2024-09-16",
-    }
+
+    "Fecha": "2026-09-16"
+} 
 
 print("\033[93m" + '=' * 120 + "\033[0m")
 print("\033[1m" + Encabezado["Nombre_taller"] + "\033[0m")  
@@ -38,11 +39,13 @@ print()
 #Devuelve: Un diccionario de listas y "alimenta" todos los calculos de las funciones posteriores.
 
 pedidos_1 = {
-    "Clientes": [
-        "Laura",
-        "Carlos",
-        "Comercial XYZ"
-    ],
+   "Clientes": [
+    "Laura",
+    "Carlos",
+    "Distribuciones ABC",
+    "Andrea",
+    "Comercial XYZ"
+],
 
     "Tipo": [
         "Regular",
