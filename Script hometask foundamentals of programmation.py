@@ -1,4 +1,6 @@
-Encabezado ={ 
+
+        "Distribuciones ABC",
+        "Andrea",Encabezado ={ 
     "Nombre_taller" : "Desarrollo taller Fundamentos de programación - Taller de entrenamiento de programación y razonamiento lógico",
     "Integrantes" : """
                     """
@@ -39,8 +41,6 @@ pedidos_1 = {
     "Clientes": [
         "Laura",
         "Carlos",
-        "Distribuciones ABC",
-        "Andrea",
         "Comercial XYZ"
     ],
 
@@ -794,6 +794,7 @@ dias_retraso_total = 0
 pedidos_tardios = 0
 
 clientes = {}
+clientes_incumplidos = []
 
 for pedido in pedidos_7:
 
@@ -813,7 +814,10 @@ for pedido in pedidos_7:
 
         categoria = "Incumplido"
         incumplidos = incumplidos + 1
-
+        
+        if cliente not in clientes_incumplidos:
+            clientes_incumplidos.append(cliente)
+    
     elif entregadas == solicitadas and reales <= prometidos and pago == "Pagado":
 
         categoria = "Cumplido"
@@ -887,6 +891,7 @@ else:
     promedio_retraso = 0
 
 print("Promedio de días de retraso:", promedio_retraso)
+print("Clientes con incumplimientos:", clientes_incumplidos)
 
 print()
 print("RESUMEN POR CLIENTE")
